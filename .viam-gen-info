@@ -1,0 +1,13 @@
+{
+  "module_name": "gpu-transform-module",
+  "namespace": "isha-org",
+  "language": "python",
+  "resource_type": "component",
+  "resource_subtype": "camera",
+  "model_name": "gpu-transform",
+  "enable_cloud_build": true,
+  "initialize_git": false,
+  "generator_version": "0.1.0",
+  "generated_on": "2025-07-14T15:52:40.497873Z",
+  "module_readme_link": "README.md"
+}

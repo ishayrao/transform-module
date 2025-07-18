@@ -1,0 +1,30 @@
+{
+  "$schema": "https://dl.viam.dev/module.schema.json",
+  "module_id": "isha-org:gpu-transform-camera",
+  "visibility": "private",
+  "url": "",
+  "description": "Modular camera component: gpu-transform",
+  "models": [
+    {
+      "api": "rdk:component:camera",
+      "model": "isha-org:gpu-transform-camera:gpu-transform",
+      "short_description": "Uses GPU to apply transforms to images (crop, resize, flip and to grayscale)",
+      "markdown_link": "README.md#model-isha-orggpu-transform-cameragpu-transform"
+    }
+  ],
+  "applications": null,
+  "markdown_link": "README.md",
+  "entrypoint": "reload.sh",
+  "first_run": "",
+  "build": {
+    "build": "rm -f module.tar.gz && tar czf module.tar.gz requirements.txt src/*.py src/models/*.py meta.json setup.sh reload.sh",
+    "setup": "./setup.sh",
+    "path": "module.tar.gz",
+    "arch": [
+      "linux/amd64",
+      "linux/arm64",
+      "darwin/arm64",
+      "windows/amd64"
+    ]
+  }
+}
