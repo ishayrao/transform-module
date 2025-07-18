@@ -1,0 +1,9 @@
+
+viam-sdk==0.50.0
+typing-extensions
+numpy>=1.26.4
+pillow
+protobuf>=4.25.1
+pyinstaller
+
+#torch and torchvision installed by custom wheels in makefile

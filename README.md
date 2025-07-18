@@ -42,14 +42,20 @@ Run tests through pytest with:
 
 ## Installation
 
-> Note:  
-> The current `requirements.txt` does not yet support JetPack 6.  
-> Make sure your environment matches the dependencies listed in `requirements.txt`.
-
+### For standard users (x86/linux/mac)
+Create venv and install using
 ```sh
-pip install -r requirements.txt
+make install
 ```
+### For NVIDIA Jetson or Jetpack6 Users
 
+Create venv and install using 
+```sh
+make install-jetpack-
+```
+This sets up the Python venv and installs all dependencies for use on jetpack using pytorch wheels
+
+Ensure you are using Python version 3.10 or above for jetpack.
 ---
 
 ## Usage
@@ -163,6 +169,8 @@ You can use the provided Makefile to build and clean the module:
 
 | Command             | Description                                                        |
 |---------------------|--------------------------------------------------------------------|
+| `make install`         | Installs dependencies for standard (x86/Linux/Mac) environments.   |
+| `make install-jetpack-`| Installs JetPack-specific dependencies and custom wheels.          |
 | `make module`       | Builds the module and creates `module.tar.gz` for deployment.      |
 | `make clean_module` | Removes build artifacts, including `module.tar.gz`.                |
 
@@ -176,6 +184,4 @@ make clean_module
 ## Notes
 
 - CUDA and compatible GPU required for acceleration.
-- For JetPack 6 support, dependencies may need to be updated in `requirements.txt`.
-
 ---
