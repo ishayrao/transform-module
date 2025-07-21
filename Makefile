@@ -53,8 +53,8 @@ clean_module:
 	rm -rf *.spec
 
 $(BUILD)/$(PYTORCH_WHEEL):
-@echo "Making $(BUILD)/$(PYTORCH_WHEEL)"
-wget  -P $(BUILD) $(PYTORCH_WHEEL_URL)
+	@echo "Making $(BUILD)/$(PYTORCH_WHEEL)"
+	wget  -P $(BUILD) $(PYTORCH_WHEEL_URL)
 
 
 pytorch-wheel: $(BUILD)/$(PYTORCH_WHEEL)

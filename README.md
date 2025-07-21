@@ -184,4 +184,5 @@ make clean_module
 ## Notes
 
 - CUDA and compatible GPU required for acceleration.
+- This module can support either JPEG or png image types from the source camera, but the entire JPEG pipeline is GPU accelerated vs only parts of the png pipeline are GPU supported. 
 ---

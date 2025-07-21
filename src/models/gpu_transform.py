@@ -84,9 +84,7 @@ class GPUTransformCamera(Camera, Reconfigurable):
 
         source_image = await self.source_camera.get_image(mime_type, timeout=timeout)
 
-        transformed_image = self.pipeline.transform(
-            source_image
-        )  # add mime type to avoid always using jpeg
+        transformed_image = self.pipeline.transform(source_image, mime_type)
         logger.info(f"Returning transformed image: {type(transformed_image)}")
         return transformed_image
 

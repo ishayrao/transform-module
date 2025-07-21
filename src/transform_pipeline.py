@@ -1,7 +1,7 @@
 from src.utils.gpu_utils import get_device, viam_to_tensor, tensor_to_viam
 import torch
-from viam.media.video import ViamImage
-from typing import List, Dict, Any
+from viam.media.video import ViamImage, CameraMimeType
+from typing import List, Dict, Any, Optional
 import torchvision.transforms as T
 import torchvision.transforms.functional as F
 from viam.logging import getLogger
@@ -134,7 +134,10 @@ class GPUTransformPipeline:
 
         return transform_pipeline
 
-    def transform(self, image: ViamImage) -> ViamImage:
-        tensor = viam_to_tensor(image).to(self.device)  # ViamImage to tensor
+    def transform(self, image: ViamImage, mime_type: Optional[str] = None) -> ViamImage:
+        if mime_type is None:
+            mime_type = CameraMimeType.JPEG  # default to jpeg
+
+        tensor = viam_to_tensor(image, device=self.device)  # ViamImage to tensor
         transformed = self.transforms(tensor)  # apply transforms
-        return tensor_to_viam(transformed)  # return converted viam image
+        return tensor_to_viam(transformed, mime_type)  # return converted viam image
